@@ -11,14 +11,14 @@ script:
   - docker run -e CI=true maor/react-test npm test
 
 after_success:
-  - docker build -t maor/multi-client ./client
-  - docker build -t maor/multi-nginx ./nginx
-  - docker build -t maor/multi-server ./server
-  - docker build -t maor/multi-worker ./worker
+  - docker build -t maoryanni/multi-client ./client
+  - docker build -t maoryanni/multi-nginx ./nginx
+  - docker build -t maoryanni/multi-server ./server
+  - docker build -t maoryanni/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push maor/multi-client
-  - docker push maor/multi-nginx
-  - docker push maor/multi-server
-  - docker push maor/multi-worker
+  - docker push maoryanni/multi-client
+  - docker push maoryanni/multi-nginx
+  - docker push maoryanni/multi-server
+  - docker push maoryanni/multi-worker
